@@ -1,0 +1,16 @@
+class Solution {
+    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+val map = HashMap<String,MutableList<String>>()
+
+    for(word in strs){
+       val key = word.toCharArray().sorted().joinToString("")
+       if(!map.containsKey(key)){
+        
+         map[key] = mutableListOf()
+       }
+        map[key]!!.add(word)
+    }
+      return map.values.toList()
+    }
+  
+}
